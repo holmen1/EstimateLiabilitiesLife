@@ -7,7 +7,7 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "EstimateLiabilitiesLife", "
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "EstimateLiabilitiesLife.Tests", "EstimateLiabilitiesLife.Tests\EstimateLiabilitiesLife.Tests.fsproj", "{C7802AD6-4908-4D3F-ACBA-FCCE64C774FC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "API\API.csproj", "{F0D68F11-E3FD-46D2-B4B8-5A95B3685A57}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EstimateLiabilitiesLife.API", "EstimateLiabilitiesLife.API\EstimateLiabilitiesLife.API.csproj", "{F0D68F11-E3FD-46D2-B4B8-5A95B3685A57}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

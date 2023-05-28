@@ -1,4 +1,4 @@
-namespace Pension.Tests
+namespace EstimateLiabilitiesLife.Tests
 
 open NUnit.Framework
 open System

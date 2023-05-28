@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using EstimateLiabilitiesLife;
 
-namespace PensionAPI.Models;
+namespace EstimateLiabilitiesLife.API.Models;
 
 internal class Contract
 {

@@ -1,7 +1,7 @@
 using System.Text.Json;
 using Microsoft.EntityFrameworkCore;
 using EstimateLiabilitiesLife;
-using PensionAPI.Models;
+using EstimateLiabilitiesLife.API.Models;
 
 
 var builder = WebApplication.CreateBuilder(args);
