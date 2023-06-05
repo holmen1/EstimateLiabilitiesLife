@@ -1,11 +1,9 @@
-using System.ComponentModel.DataAnnotations;
-using EstimateLiabilitiesLife;
 
 namespace EstimateLiabilitiesLife.API.Models;
 
 internal class Contract
 {
-    [Key] public int contractNo { get; set; }
+    public int contractNo { get; set; }
     public DateTime valueDate { get; set; }
     public DateTime birthDate { get; set; }
     public string sex { get; set; } // M or F
@@ -33,9 +31,3 @@ internal class Contract
     }
 }
 
-internal class ReserveResult
-{
-    [Key] public int contractNo { get; set; }
-    public DateTime valueDate { get; set; }
-    public double? pvTechnicalProvision { get; set; }
-}

@@ -1,6 +1,7 @@
 using System.Text.Json;
 using EstimateLiabilitiesLife;
 using EstimateLiabilitiesLife.API.Models;
+using Microsoft.FSharp.Collections;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -29,18 +30,12 @@ app.MapGet("/", () => "Hello World!\n");
 app.MapGet("/test", () =>
     Results.Json(new Reserving.cashflow(0, 0.0, 55.5), options));
 
-app.MapPost("/reserve", async (Contract c) =>
+app.MapPost("/cashflows", async (Contract c) =>
 {
     var contract = c.InsuranceContract();
-    var fta = Reserving.technicalProvision(c.valueDate, contract);
+    FSharpList<Reserving.cashflow> cf = Reserving.projectCashflows(c.valueDate, contract);
 
-    var reserve = new ReserveResult
-    {
-        contractNo = c.contractNo,
-        valueDate = c.valueDate,
-        pvTechnicalProvision = fta
-    };
-    return Results.Created($"/reserve", reserve);
+    return Results.Created("/cashflows", cf);
 });
 
 app.Run();

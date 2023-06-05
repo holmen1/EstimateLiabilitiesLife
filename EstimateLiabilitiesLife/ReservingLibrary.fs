@@ -18,7 +18,7 @@ module Reserving =
         |> List.map (fun t -> if t >= z_month && t <= end_month then benefit else 0.0)
 
 
-    let private projectCashflows
+    let projectCashflows
         (valuedate: DateTime)
         { Insurance.birthDate = birthdate
           Insurance.sex = sex
@@ -61,16 +61,3 @@ module Reserving =
                   benefit = cf.[i] })
             index
 
-    let reserve (valuedate: DateTime) (contract: Contract) (discount: float list) =
-        projectCashflows valuedate contract
-        |> List.map (fun c -> c.benefit)
-        |> fun gb -> List.map2 (fun d c -> d * c) gb discount[.. gb.Length - 1]
-        |> List.sum
-
-    let technicalProvision (valuedate: DateTime) (contract: Contract) =
-        let discount = Rate.discountFactors
-
-        projectCashflows valuedate contract
-        |> List.map (fun c -> c.benefit)
-        |> fun gb -> List.map2 (fun d c -> d * c) gb discount[.. gb.Length - 1]
-        |> List.sum
