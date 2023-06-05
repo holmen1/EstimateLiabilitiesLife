@@ -8,7 +8,7 @@ docker run -it --rm -p 5000:80 --name aspnetcore_sample mats-api
 ```
 
 ```bash
-curl -X 'POST' 'http://localhost:5000/reserves' -H 'accept: */*' -H 'Content-Type: application/json' -d '{"contractNo":42341,"valueDate":"2023-04-30","birthDate":"1973-04-30","sex":"F","z":65,"guarantee":1000,"payPeriod":5,"table":"APG"}'  
+curl -X 'POST' 'http://localhost:5000/reserve' -H 'accept: */*' -H 'Content-Type: application/json' -d '{"contractNo":42341,"valueDate":"2023-04-30","birthDate":"1973-04-30","sex":"F","z":65,"guarantee":1000,"payPeriod":5,"table":"APG"}'  
 {"contractNo":42341,"valueDate":"2023-04-30T00:00:00","pvTechnicalProvision":520.2712805436308}
 ```
 
@@ -49,17 +49,8 @@ FQDN  ProvisioningState
 aciholmen1.northeurope.azurecontainer.io  Succeeded
 
 ```bash
-curl -X 'POST' 'acilifeholmen1.northeurope.azurecontainer.io/reserves' -H 'accept: */*' -H 'Content-Type: application/json' -d '{"contractNo":42341,"valueDate":"2023-04-30","birthDate":"1973-04-30","sex":"F","z":65,"guarantee":1000,"payPeriod":5,"table":"APG"}' 
+curl -X 'POST' 'acilifeholmen1.northeurope.azurecontainer.io/reserve' -H 'accept: */*' -H 'Content-Type: application/json' -d '{"contractNo":42341,"valueDate":"2023-04-30","birthDate":"1973-04-30","sex":"F","z":65,"guarantee":1000,"payPeriod":5,"table":"APG"}' 
 ```
-
-```bash
-curl -X 'GET' 'acilifeholmen1.northeurope.azurecontainer.io/reserves'
-```
-[{"contractNo":42341,"valueDate":"2023-04-30T00:00:00","pvTechnicalProvision":520.2712805436308},  
-{"contractNo":42342,"valueDate":"2023-04-30T00:00:00","pvTechnicalProvision":520.2712805436308},  
-{"contractNo":42343,"valueDate":"2023-04-30T00:00:00","pvTechnicalProvision":499.11924817949165},  
-{"contractNo":42344,"valueDate":"2023-04-30T00:00:00","pvTechnicalProvision":501.71430877884}]
-
 
 Clean up resources
 ```bash
