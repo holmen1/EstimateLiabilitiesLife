@@ -31,3 +31,11 @@ internal class Contract
     }
 }
 
+internal class CashflowResult
+{
+    public int contractNo { get; set; }
+    public DateTime valueDate { get; set; }
+    public List<double> benefits { get; set; }
+}
+
+

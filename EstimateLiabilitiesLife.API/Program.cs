@@ -33,9 +33,16 @@ app.MapGet("/test", () =>
 app.MapPost("/cashflows", async (Contract c) =>
 {
     var contract = c.InsuranceContract();
-    FSharpList<Reserving.cashflow> cf = Reserving.projectCashflows(c.valueDate, contract);
+    FSharpList<double> cf = Reserving.cashflows(c.valueDate, contract);
+    
+    var cfResult = new CashflowResult
+    {
+        contractNo = c.contractNo,
+        valueDate = c.valueDate,
+        benefits = cf.ToList()
+    };
 
-    return Results.Created("/cashflows", cf);
+    return Results.Created("/cashflows", cfResult);
 });
 
 app.Run();
