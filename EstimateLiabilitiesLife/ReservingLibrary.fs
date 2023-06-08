@@ -7,18 +7,13 @@ open Insurance
 
 module Reserving =
 
-    type cashflow =
-        { month: int; t: float; benefit: float }
-
-    type cashflows = cashflow list
-
 
     let private benefits index benefit z_month end_month =
         index
         |> List.map (fun t -> if t >= z_month && t <= end_month then benefit else 0.0)
 
 
-    let private projectCashflows
+    let projectCashflows
         (valuedate: DateTime)
         { Insurance.birthDate = birthdate
           Insurance.sex = sex
@@ -26,7 +21,7 @@ module Reserving =
           Insurance.guarantee = monthBenefit
           Insurance.payPeriod = T
           Insurance.table = table }
-        : cashflows =
+        =
 
         let age = Time.years birthdate valuedate
 
@@ -53,14 +48,4 @@ module Reserving =
             | APG -> gb
             | AP -> Mortality.survivalProbs birthdate sex age t |> List.map2 (fun g l -> g * l) gb
 
-        // Returns a list of cashflows
-        List.map
-            (fun i ->
-                { month = i
-                  t = t.[i]
-                  benefit = cf.[i] })
-            index
-    
-    let cashflows (valuedate: DateTime) (contract: Contract) =
-        projectCashflows valuedate contract
-        |> List.map (fun c -> c.benefit)
+        cf

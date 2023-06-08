@@ -1,4 +1,4 @@
-# LifeApi
+# EstimateLiabilitiesLife
 
 ### Description
 
@@ -7,7 +7,7 @@ Estimate liabilities for life insurance policies
 
 ## Projects
 
-* EstimateLiabilitiesLife.API (C# Web API)
+* EstimateLiabilitiesLife.API (F# Minimal Web API)
 * EstimateLiabilitiesLife (F# Library)
 * EstimateLiabilitiesLife.Tests (F# NUnit Tests)
 

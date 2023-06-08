@@ -1,6 +1,7 @@
 ﻿namespace EstimateLiabilitiesLife
 
 open System
+open EstimateLiabilitiesLife.Mortality
 
 
 module Insurance =
@@ -12,7 +13,7 @@ module Insurance =
     type Contract =
         { contractNo: int
           birthDate: DateTime
-          sex: Mortality.Sex
+          sex: Sex
           z: int
           guarantee: float
           payPeriod: int
