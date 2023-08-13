@@ -1,6 +1,6 @@
 open System.Text.Json
 open System.Threading.Tasks
-open EstimateLiabilitiesLife;
+open EstimateLiabilitiesLife
 open System
 open Microsoft.AspNetCore.Builder
 open Microsoft.AspNetCore.Http
@@ -27,20 +27,20 @@ type RequestModel =
       guarantee: float
       payPeriod: int
       table: string }
-    
+
     member this.Sex() =
         match this.sex with
         | "F" -> Mortality.Sex.F
         | "M" -> Mortality.Sex.M
         | _ -> failwith "non binary sex not supported"
-        
+
     member this.Table() =
         match this.table with
         | "AP" -> Insurance.Table.AP
         | "APG" -> Insurance.Table.APG
         | _ -> failwith $"table {this.table} not supported"
-       
-        
+
+
     member this.ToContract() =
         { Insurance.contractNo = this.contractNo
           Insurance.birthDate = this.birthDate
@@ -52,17 +52,21 @@ type RequestModel =
 
 app.MapGet("/", Func<string>(fun () -> "Hello World!")) |> ignore
 
-app.MapPost("/cashflows", Func<HttpContext, Task>(fun (context) -> 
-    let jsonRequest = context.Request.Body
-    let request = JsonSerializer.DeserializeAsync<RequestModel>(jsonRequest, options).Result
-    let valueDate = request.valueDate
-    let contract = request.ToContract()
-    let cashflows = Reserving.projectCashflows valueDate contract
-    let jsonResponse = JsonSerializer.Serialize(cashflows, options)
-    context.Response.WriteAsync(jsonResponse)
-)) |> ignore
+app.MapPost(
+    "/cashflows",
+    Func<HttpContext, Task>(fun (context) ->
+        let jsonRequest = context.Request.Body
+
+        let request =
+            JsonSerializer.DeserializeAsync<RequestModel>(jsonRequest, options).Result
+
+        let valueDate = request.valueDate
+        let contract = request.ToContract()
+        let cashflows = Reserving.projectCashflows valueDate contract
+        let jsonResponse = JsonSerializer.Serialize(cashflows, options)
+        context.Response.WriteAsync(jsonResponse))
+)
+|> ignore
 
 
 app.Run()
-
-
