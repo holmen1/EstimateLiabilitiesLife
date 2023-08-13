@@ -54,9 +54,7 @@ module Mortality =
         let mortality = mu a b c
         Math.Exp(-integral 0.0 x mortality)
 
-    // survival probabilies at age x + t, list of l(x+t)/l(x)
+    // survival probabilites at age x + t, list of l(x+t)/l(x)
     let survivalProbs (birth: DateTime) (sex: Sex) (age: float) (t: float list) =
-        makeham06 birth sex
-        |> survival
-        |> fun l -> List.map (fun t' -> l (age + t')) t
-        |> fun l' -> List.map (fun l'' -> l'' / l'.Head) l'
+        let l = makeham06 birth sex |> survival
+        List.map (fun t' -> l (age + t') / l age) t

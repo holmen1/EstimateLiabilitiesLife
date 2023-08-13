@@ -9,15 +9,15 @@ module Time =
     let years (startDate: DateTime) (endDate: DateTime) : float =
         (endDate - startDate).TotalDays / 365.25
 
-    let months (startDate: DateTime) (endDate: DateTime) : int =
+    let monthsBetweenDates (startDate: DateTime) (endDate: DateTime) : int =
         12 * (endDate.Year - startDate.Year) + endDate.Month - startDate.Month
 
     type T =
         { startDate: DateTime
           months: int }
 
-        member this.Index = [ 0 .. this.months ]
-        member this.Dates = this.Index |> List.map this.startDate.AddMonths
+        member this.Months = [ 0 .. this.months ]
+        member this.Dates = this.Months |> List.map this.startDate.AddMonths
         member this.Years = this.Dates |> List.map (fun d -> years this.Dates.Head d)
 
 module Simpson =

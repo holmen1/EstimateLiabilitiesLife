@@ -1,19 +1,16 @@
+open System
 open System.Text.Json
 open System.Threading.Tasks
-open EstimateLiabilitiesLife
-open System
 open Microsoft.AspNetCore.Builder
 open Microsoft.AspNetCore.Http
 open Microsoft.Extensions.Hosting
-
-
-
+open EstimateLiabilitiesLife
 
 
 
 let builder = WebApplication.CreateBuilder()
-
 let app = builder.Build()
+
 app.UseHttpsRedirection() |> ignore
 let options = JsonSerializerOptions(JsonSerializerDefaults.Web)
 
@@ -50,23 +47,19 @@ type RequestModel =
           Insurance.payPeriod = this.payPeriod
           Insurance.table = this.Table() }
 
-app.MapGet("/", Func<string>(fun () -> "Hello World!")) |> ignore
+app.MapGet("/", Func<string>(fun () -> "Hello World from EstimateLiabilitiesLife.API!")) |> ignore
 
 app.MapPost(
     "/cashflows",
-    Func<HttpContext, Task>(fun (context) ->
+    Func<HttpContext, Task>(fun context ->
         let jsonRequest = context.Request.Body
-
         let request =
             JsonSerializer.DeserializeAsync<RequestModel>(jsonRequest, options).Result
-
         let valueDate = request.valueDate
         let contract = request.ToContract()
         let cashflows = Reserving.projectCashflows valueDate contract
         let jsonResponse = JsonSerializer.Serialize(cashflows, options)
         context.Response.WriteAsync(jsonResponse))
-)
-|> ignore
-
+) |> ignore
 
 app.Run()
