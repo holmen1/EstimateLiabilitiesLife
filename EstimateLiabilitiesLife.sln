@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "EstimateLiabilitiesLife", "EstimateLiabilitiesLife\EstimateLiabilitiesLife.fsproj", "{4F93B3D7-2E98-4419-968C-7715000BAE5C}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "EstimateLiabilities", "EstimateLiabilities\EstimateLiabilities.fsproj", "{4F93B3D7-2E98-4419-968C-7715000BAE5C}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "EstimateLiabilitiesLife.Tests", "EstimateLiabilitiesLife.Tests\EstimateLiabilitiesLife.Tests.fsproj", "{C7802AD6-4908-4D3F-ACBA-FCCE64C774FC}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "EstimateLiabilities.Tests", "EstimateLiabilities.Tests\EstimateLiabilities.Tests.fsproj", "{C7802AD6-4908-4D3F-ACBA-FCCE64C774FC}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "EstimateLiabilitiesLife.API", "EstimateLiabilitiesLife.API\EstimateLiabilitiesLife.API.fsproj", "{0FE63843-22EB-4D69-841C-9E269EB5FEEE}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "EstimateLiabilities.API", "EstimateLiabilities.API\EstimateLiabilities.API.fsproj", "{0FE63843-22EB-4D69-841C-9E269EB5FEEE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

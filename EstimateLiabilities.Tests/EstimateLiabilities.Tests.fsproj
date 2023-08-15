@@ -22,7 +22,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\EstimateLiabilitiesLife\EstimateLiabilitiesLife.fsproj"/>
+        <ProjectReference Include="..\EstimateLiabilities\EstimateLiabilities.fsproj" />
     </ItemGroup>
 
 </Project>

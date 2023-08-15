@@ -47,7 +47,7 @@ type RequestModel =
           Insurance.payPeriod = this.payPeriod
           Insurance.table = this.Table() }
 
-app.MapGet("/", Func<string>(fun () -> "Hello World from EstimateLiabilitiesLife.API!")) |> ignore
+app.MapGet("/", Func<string>(fun () -> "Hello from EstimateLiabilitiesLife.API!")) |> ignore
 
 app.MapPost(
     "/cashflows",

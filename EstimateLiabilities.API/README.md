@@ -11,21 +11,19 @@ docker run -it --rm -p 5000:80 --name aspnetcore_sample mats-api
 curl -X 'POST' 'http://localhost:5000/cashflows' -H 'accept: */*' -H 'Content-Type: application/json' -d '{"contractNo":42341,"valueDate":"2023-04-30","birthDate":"1973-04-30","sex":"F","z":65,"guarantee":1000,"payPeriod":5,"table":"APG"}'  
 ```
 [
-{
-"month": 0,
-"t": 0,
-"benefit": 0
-},
-{
-"month": 1,
-"t": 0.08213552361396304,
-"benefit": 0
-},
-{
-"month": 2,
-"t": 0.16700889801505817,
-"benefit": 0
-}...]
+    {
+        "month": 180,
+        "benefit": 970.7415543137475
+    },
+    {
+        "month": 181,
+        "benefit": 970.4725079733406
+    },
+    {
+        "month": 182,
+        "benefit": 970.2012720923848
+    },...]
+    
 
 ## Deploy to Azure Container Instances
 

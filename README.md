@@ -11,5 +11,3 @@ Estimate liabilities for life insurance policies
 * EstimateLiabilitiesLife (F# Library)
 * EstimateLiabilitiesLife.Tests (F# NUnit Tests)
 
-
-### TODO

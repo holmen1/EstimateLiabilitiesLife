@@ -2,6 +2,7 @@
 
     <PropertyGroup>
         <TargetFramework>net6.0</TargetFramework>
+        <RootNamespace>EstimateLiabilitiesLife.API</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
@@ -9,7 +10,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\EstimateLiabilitiesLife\EstimateLiabilitiesLife.fsproj" />
+      <ProjectReference Include="..\EstimateLiabilities\EstimateLiabilities.fsproj" />
     </ItemGroup>
 
 </Project>
